@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main</class>
+ <widget class="QMainWindow" name="main">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>LangmuirProbeGUI</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="btnProyectos"/>
+    <addaction name="btnIngresar_medidas"/>
+    <addaction name="btnConsultar_medidas"/>
+    <addaction name="btnHistorial_de_mediciones"/>
+   </widget>
+   <widget class="QMenu" name="menuAn_lisi">
+    <property name="title">
+     <string>Análisis</string>
+    </property>
+    <addaction name="btnPar_metros"/>
+    <addaction name="btnComparar_medidas"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuAn_lisi"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="btnProyectos">
+   <property name="text">
+    <string>Proyectos</string>
+   </property>
+  </action>
+  <action name="btnConsultar_medidas">
+   <property name="text">
+    <string>Consultar medidas</string>
+   </property>
+  </action>
+  <action name="btnHistorial_de_mediciones">
+   <property name="text">
+    <string>Historial de mediciones</string>
+   </property>
+  </action>
+  <action name="btnPar_metros">
+   <property name="text">
+    <string>Parámetros</string>
+   </property>
+  </action>
+  <action name="btnComparar_medidas">
+   <property name="text">
+    <string>Comparar medidas</string>
+   </property>
+  </action>
+  <action name="btnIngresar_medidas">
+   <property name="text">
+    <string>Ingresar medidas</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
