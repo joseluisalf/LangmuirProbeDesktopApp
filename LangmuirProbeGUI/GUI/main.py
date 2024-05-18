@@ -620,36 +620,3 @@ class MainWindow():
         else:
             self.incompleteLoadData.show()
     
-    def AddData(self):
-        meta_method = self.saveData.ltwRawData.metaObject().method(self.saveData.ltwRawData.metaObject().indexOfMethod("currentIndexChanged(int)"))
-        is_conected = self.saveData.ltwRawData.isSignalConnected(meta_method)
-        if is_conected:
-            self.saveData.ltwRawData.currentIndexChanged.disconnect(self.SelectionValue)
-
-        self.saveData.ltwRawData.currentIndexChanged.connect(self.SelectionValue)
-    
-    def SelectionValue(self):
-        self.saveData.ltwRawData.currentIndexChanged.disconnect(self.SelectionValue)
-        # Obtener el texto del elemento seleccionado
-        selectionValue = self.saveData.ltwRawData.currentText()
-        if selectionValue != "":
-            ###########################################
-            print("Valor seleccionado:", selectionValue) # acción de prueba
-            # Ya se crearon las tablas, y la conexión sigue abierta. El curso se cerró.
-            # Ahora se debe obtener la ruta absoluta del nombre en la variable  selectionValue
-            # Luego se ejecutarán los métodos de extracción para crear los tres primeros registros como dataframes
-            # El último se creará agregando la información en las entradas de la ventana actual.
-            # Al presionar el botón de agregar, se acgregarán las cuatro entradas a sus respectivos dataframes provisionales
-            # Una vez seleccionados todos los registros en el comboBox y con sus entradas respectivas agregadas a los dataframes provisionales
-            # se sube cada uno a su respectiva tabla en la base de datos.
-            
-            # Los datagrames provisionales servirán para aún registrar cambios hasta antes de su carga definitiva a la base de datos.
-            # Cerrar la conexión 
-            ###########################################
-            index = self.saveData.ltwRawData.currentIndex()
-            self.saveData.ltwRawData.removeItem(index)
-        # Eliminar el elemento seleccionado del ComboBox
-        #if selectionValue != "-----Seleccione un archivo-----":   
-        self.saveData.dpwComboBox.setCurrentIndex(self.saveData.dpwComboBox.findText("-----Seleccione un archivo-----"))
-        self.saveData.dpwComboBox.currentIndexChanged.connect(self.SelectionValue)
-    
