@@ -42,11 +42,11 @@ class MainWindow():
 
     def OpenManagerProject(self):
         # --------------- Ajuste del ancho de las columnas del tableiwdget -----------------
-        self.projectManager.tblwProjects.setColumnWidth(0,100)
-        self.projectManager.tblwProjects.setColumnWidth(1,100)
-        self.projectManager.tblwProjects.setColumnWidth(2,200)
-        self.projectManager.tblwProjects.setColumnWidth(3,150)
-        self.projectManager.tblwProjects.setColumnWidth(4,300)
+        self.projectManager.tblwProjects.setColumnWidth(0,120)
+        self.projectManager.tblwProjects.setColumnWidth(1,120)
+        self.projectManager.tblwProjects.setColumnWidth(2,160)
+        self.projectManager.tblwProjects.setColumnWidth(3,140)
+        self.projectManager.tblwProjects.setColumnWidth(4,200)
         self.projectManager.show()
         ######################### CREACIÓN DE LA TABLA DE PROYECTOS #########################
         conection_ = con.Conexion()

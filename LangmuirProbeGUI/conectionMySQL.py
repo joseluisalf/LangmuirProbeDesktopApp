@@ -9,7 +9,7 @@ class Conexion():
             self.con = mysql.connector.connect(
                                                 host='localhost',
                                                 user='root',
-                                                password='Joseluisce20214509'
+                                                password='20214509'
                                             )
             
             # Crear una nueva base de datos si no existe
