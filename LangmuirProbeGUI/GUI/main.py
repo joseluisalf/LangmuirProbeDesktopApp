@@ -46,7 +46,7 @@ class MainWindow():
         self.projectManager.tblwProjects.setColumnWidth(1,120)
         self.projectManager.tblwProjects.setColumnWidth(2,160)
         self.projectManager.tblwProjects.setColumnWidth(3,140)
-        self.projectManager.tblwProjects.setColumnWidth(4,200)
+        self.projectManager.tblwProjects.setColumnWidth(4,196)
         self.projectManager.show()
         ######################### CREACIÓN DE LA TABLA DE PROYECTOS #########################
         conection_ = con.Conexion()
