@@ -253,7 +253,13 @@ class MainWindow():
 
     def DeleteExistingProject(self):
         self.selected_row_ = self.projectManager.tblwProjects.currentRow()
+        print(self.selected_row_)
         if self.selected_row_ != -1:
+            # Desconectar señales previamente conectadas para evitar ejecuciones múltiples
+            try:
+                self.deleteProject.btnDelete.clicked.disconnect(self.DeleteProject)
+            except TypeError:
+                pass  # Si no está conectada, pasamos
             self.deleteProject.btnDelete.clicked.connect(self.DeleteProject)
             self.deleteProject.btnNoDelete.clicked.connect(self.deleteProject.close)
             self.deleteProject.show()
@@ -261,6 +267,7 @@ class MainWindow():
             self.noProjectSelected.show()
 
     def DeleteProject(self):
+        
         conection_ = con.Conexion()
         self.db = conection_.Connect()
         cur = self.db.cursor()
@@ -268,6 +275,7 @@ class MainWindow():
         cur.close()
         cur = self.db.cursor()                    
         row_values = [self.projectManager.tblwProjects.item(self.selected_row_, column).text() for column in range(self.projectManager.tblwProjects.columnCount())]
+        print(row_values)
         sql_delete = "DELETE FROM projects WHERE `ID del proyecto` = %s"
         cur.execute(sql_delete, [row_values[0]])
         self.db.commit()
@@ -276,6 +284,9 @@ class MainWindow():
         cur = self.db.cursor()
         cur.execute("SELECT * FROM projects")
         records_project = cur.fetchall()
+        #self.db.commit()
+        cur.close()
+        self.db.close()
         #print(records_project)
         self.projectManager.tblwProjects.setRowCount(len(records_project))
         self.projectManager.tblwProjects.setColumnCount(len(records_project[0]))
@@ -284,9 +295,13 @@ class MainWindow():
             for j, value in enumerate(row):
                 item = QTableWidgetItem(str(value))
                 self.projectManager.tblwProjects.setItem(i, j, item)
-        self.db.commit()
-        self.db.close()
+        #self.projectManager.tblwProjects.clearSelection()## quitar la selección siguiente
+        # Limpiar la selección después de actualizar la tabla
+        self.projectManager.tblwProjects.clearSelection()
+        self.selected_row_ = -1
+        print(self.selected_row_)
         self.deleteProject.close()
+        
 
 ###################################### FILTRAR MEDIDAS ####################################
 
@@ -301,7 +316,7 @@ class MainWindow():
         cur.execute("SELECT Usuario FROM projects")
         records_users = cur.fetchall()
         self.projectManager.dpwComboBox.clear()
-        self.projectManager.dpwComboBox.addItem("-----Seleccione un archivo-----")
+        self.projectManager.dpwComboBox.addItem("------Seleccione un usuario------")
         if records_users:
             for i in range(len(records_users)):
                 self.projectManager.dpwComboBox.addItem(records_users[i][0])
@@ -319,7 +334,7 @@ class MainWindow():
         
         
         if idValueFilter:
-            if userValueFilter != "-----Seleccione un archivo-----":
+            if userValueFilter != "------Seleccione un usuario------":
                 cur = self.db.cursor()
                 query = "SELECT * FROM projects WHERE `ID del proyecto` = %s AND Usuario = %s"
                 cur.execute(query, [idValueFilter,userValueFilter])
@@ -356,7 +371,7 @@ class MainWindow():
                 cur.close()
                 # Consultar solo con idValueFilter    
         else:
-            if userValueFilter != "-----Seleccione un archivo-----":
+            if userValueFilter != "------Seleccione un usuario------":
                 cur = self.db.cursor()
                 query = "SELECT * FROM projects WHERE Usuario = %s"
                 cur.execute(query, [userValueFilter])
@@ -576,7 +591,7 @@ class MainWindow():
                 cur.close()                    
                 ############### SUBIMOS LA TABLA PARAMETERS ##################
                 cur = self.db.cursor()
-                tableNameParameters = "dataparameters"
+                tableNameParameters = "dataParameters"
                 columnsParameters = ','.join([f"`{element}`" for element in self.globaltableParameter.columns])
                 placeholdersParameters = ','.join(['%s']*len(self.globaltableParameter.columns))
                 sql_query_Parameters = f"INSERT INTO {tableNameParameters} ({columnsParameters}) VALUES ({placeholdersParameters})"
@@ -588,7 +603,7 @@ class MainWindow():
                 cur.close()
                 ############### SUBIMOS LA TABLA SETTINGS ##################
                 cur = self.db.cursor()
-                tableNameSettings = "datasettings"
+                tableNameSettings = "dataSettings"
                 columnsSettings = ','.join([f"`{element}`" for element in self.globaltableSettings.columns])
                 placeholdersSettings = ','.join(['%s']*len(self.globaltableSettings.columns))
                 sql_query_Settings = f"INSERT INTO {tableNameSettings} ({columnsSettings}) VALUES ({placeholdersSettings})"
@@ -600,7 +615,7 @@ class MainWindow():
                 cur.close()
                 ############### SUBIMOS LA TABLA DATAEXTRA ##################
                 cur = self.db.cursor()
-                tableNameDataExtra = "dataextra"
+                tableNameDataExtra = "dataExtra"
                 columnsDataExtra = ','.join([f"`{element}`" for element in self.globaltableDataExtra.columns])
                 placeholdersDataExtra = ','.join(['%s']*len(self.globaltableDataExtra.columns))
                 sql_query_DataExtra = f"INSERT INTO {tableNameDataExtra} ({columnsDataExtra}) VALUES ({placeholdersDataExtra})"

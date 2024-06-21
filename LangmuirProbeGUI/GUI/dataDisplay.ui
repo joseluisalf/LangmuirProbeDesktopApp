@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>751</width>
+    <height>629</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QTableWidget" name="tblwProjects">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>401</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-color: rgb(166, 166, 166);
+gridline-color: rgb(208, 208, 208);
+background-color: rgb(236, 236, 236);</string>
+   </property>
+   <property name="showGrid">
+    <bool>true</bool>
+   </property>
+   <column>
+    <property name="text">
+     <string>Voltage [mV]</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="background">
+     <color>
+      <red>213</red>
+      <green>213</green>
+      <blue>213</blue>
+     </color>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Current [mA]</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="background">
+     <color>
+      <red>213</red>
+      <green>213</green>
+      <blue>213</blue>
+     </color>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>std Voltage</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="background">
+     <color>
+      <red>213</red>
+      <green>213</green>
+      <blue>213</blue>
+     </color>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>std Current</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="background">
+     <color>
+      <red>213</red>
+      <green>213</green>
+      <blue>213</blue>
+     </color>
+    </property>
+   </column>
+  </widget>
+  <widget class="QTableWidget" name="tblwProjects_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>230</y>
+     <width>401</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-color: rgb(166, 166, 166);
+gridline-color: rgb(208, 208, 208);
+background-color: rgb(236, 236, 236);</string>
+   </property>
+   <property name="showGrid">
+    <bool>true</bool>
+   </property>
+   <column>
+    <property name="text">
+     <string>Parameters</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="background">
+     <color>
+      <red>213</red>
+      <green>213</green>
+      <blue>213</blue>
+     </color>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Unit</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="background">
+     <color>
+      <red>213</red>
+      <green>213</green>
+      <blue>213</blue>
+     </color>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Value</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="background">
+     <color>
+      <red>213</red>
+      <green>213</green>
+      <blue>213</blue>
+     </color>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Error</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="background">
+     <color>
+      <red>213</red>
+      <green>213</green>
+      <blue>213</blue>
+     </color>
+    </property>
+   </column>
+  </widget>
+  <widget class="QTableWidget" name="tblwProjects_3">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>20</y>
+     <width>271</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-color: rgb(166, 166, 166);
+gridline-color: rgb(208, 208, 208);
+background-color: rgb(236, 236, 236);</string>
+   </property>
+   <property name="showGrid">
+    <bool>true</bool>
+   </property>
+   <column>
+    <property name="text">
+     <string>Setting</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="background">
+     <color>
+      <red>213</red>
+      <green>213</green>
+      <blue>213</blue>
+     </color>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Value</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="background">
+     <color>
+      <red>213</red>
+      <green>213</green>
+      <blue>213</blue>
+     </color>
+    </property>
+   </column>
+  </widget>
+  <widget class="QTableWidget" name="tblwProjects_4">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>430</y>
+     <width>691</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-color: rgb(166, 166, 166);
+gridline-color: rgb(208, 208, 208);
+background-color: rgb(236, 236, 236);</string>
+   </property>
+   <property name="showGrid">
+    <bool>true</bool>
+   </property>
+   <column>
+    <property name="text">
+     <string>Extra data</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="background">
+     <color>
+      <red>213</red>
+      <green>213</green>
+      <blue>213</blue>
+     </color>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Value</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="background">
+     <color>
+      <red>213</red>
+      <green>213</green>
+      <blue>213</blue>
+     </color>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
